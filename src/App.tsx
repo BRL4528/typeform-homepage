@@ -1,14 +1,34 @@
 import React from 'react';
 
 import GlobalStykes from './styles/global';
-import { Main } from './styles';
+import { Main, Section, Sticky } from './styles';
+
+import FirstAndSecond from './components/FirstAndSecond';
+import Header from './components/Header';
 
 function App() {
+  React.useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, []);
+
   return (
     <>
       <GlobalStykes />
+      <Header />
 
-      <Main style={{ height: '1610vh' }}></Main>
+      <Main style={{ height: '1610vh' }}>
+        <Section style={{ height: '72.7%' }}>
+          <FirstAndSecond />
+        </Section>
+
+        <Section style={{ height: '9.7%' }}>
+          <Sticky className="third" />
+        </Section>
+
+        <Section style={{ height: '10.1%' }}>
+          <Sticky className="fourth" />
+        </Section>
+      </Main>
     </>
   );
 }
